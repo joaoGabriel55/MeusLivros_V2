@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MeusLivros V2</string>
+    <string name="hint_user">Nome do usuário</string>
+    <string name="hint_pass">Senha</string>
+</resources>
