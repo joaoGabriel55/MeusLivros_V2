@@ -29,6 +29,7 @@ public class Main2Activity extends AppCompatActivity {
     RatingBar nota;
 
     Livro livro = new Livro();
+    BancoHelper bancoHelper = new BancoHelper(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +48,7 @@ public class Main2Activity extends AppCompatActivity {
         livro.setAno(ano.getText().toString());
         livro.setNota(nota.getRating());
 
-        livro.save(livro);
+        bancoHelper.save(livro);
 
 
         Toast.makeText(this, "Livro Salvo com sucesso", Toast.LENGTH_SHORT).show();
