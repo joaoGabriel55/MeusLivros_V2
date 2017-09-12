@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
@@ -29,10 +29,10 @@ public class Main3Activity extends AppCompatActivity {
     RatingBar nota;
 
     @BindView(R.id.button5)
-    Button anterior;
+    ImageButton anterior;
 
     @BindView(R.id.button6)
-    Button proximo;
+    ImageButton proximo;
 
     BancoHelper bancoHelper = new BancoHelper(this);
     private List<Livro> lista;
