@@ -55,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, Main3Activity.class));
     }
 
+    public void buscar(View v){
+        startActivity(new Intent(this, Main4Activity.class));
+    }
+
 
 
 }

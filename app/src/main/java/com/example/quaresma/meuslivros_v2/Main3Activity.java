@@ -4,10 +4,9 @@ import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.TextView;
-
-import com.orm.SugarContext;
 
 import java.util.List;
 
@@ -29,6 +28,13 @@ public class Main3Activity extends AppCompatActivity {
     @BindView(R.id.ratingBar2)
     RatingBar nota;
 
+    @BindView(R.id.button5)
+    Button anterior;
+
+    @BindView(R.id.button6)
+    Button proximo;
+
+    BancoHelper bancoHelper = new BancoHelper(this);
     private List<Livro> lista;
     private int livroAtual = -1;
 
@@ -37,11 +43,11 @@ public class Main3Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
 
-        SugarContext.init(this);
+        //SugarContext.init(this);
 
         ButterKnife.bind(this);
 
-        lista = Livro.listAll(Livro.class);
+        lista = bancoHelper.findAll();
 
         for (int i = 0; i < lista.size(); i++){
             if(i == 0){
@@ -62,6 +68,7 @@ public class Main3Activity extends AppCompatActivity {
         if(livroAtual == lista.size() -1 ){
             Snackbar snackbar = Snackbar.make((View) v.getParent(), "Ultimo registro", Snackbar.LENGTH_SHORT);
             snackbar.show();
+            proximo.setEnabled(false);
         } else {
             atualizarParametros(livroAtual + 1);
             livroAtual ++;
@@ -72,15 +79,16 @@ public class Main3Activity extends AppCompatActivity {
         if(livroAtual == 0 ){
             Snackbar snackbar = Snackbar.make((View) v.getParent(), "Primeiro registro", Snackbar.LENGTH_SHORT);
             snackbar.show();
+            anterior.setEnabled(false);
         } else {
             atualizarParametros(livroAtual - 1);
             livroAtual --;
         }
     }
 
-    @Override
+    /*@Override
     protected void onDestroy() {
         super.onDestroy();
         SugarContext.terminate();
-    }
+    }*/
 }

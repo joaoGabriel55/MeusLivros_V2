@@ -8,8 +8,6 @@ import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
-import com.orm.SugarContext;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import model.Livro;
@@ -29,13 +27,12 @@ public class Main2Activity extends AppCompatActivity {
     RatingBar nota;
 
     Livro livro = new Livro();
+    BancoHelper bancoHelper = new BancoHelper(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-
-        SugarContext.init(this);
 
         ButterKnife.bind(this);
     }
@@ -47,7 +44,7 @@ public class Main2Activity extends AppCompatActivity {
         livro.setAno(ano.getText().toString());
         livro.setNota(nota.getRating());
 
-        livro.save(livro);
+        bancoHelper.save(livro);
 
 
         Toast.makeText(this, "Livro Salvo com sucesso", Toast.LENGTH_SHORT).show();
@@ -67,12 +64,6 @@ public class Main2Activity extends AppCompatActivity {
 
         snackbar.show();
 
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        SugarContext.terminate();
     }
 
 

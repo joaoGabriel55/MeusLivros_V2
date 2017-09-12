@@ -1,13 +1,12 @@
 package model;
 
-import com.orm.SugarRecord;
-
 /**
  * Created by Quaresma on 09/09/2017.
  */
 
-public class Livro extends SugarRecord{
+public class Livro {
 
+    private long id;
     private String titulo;
     private String autor;
     private String ano;
@@ -16,11 +15,20 @@ public class Livro extends SugarRecord{
     public Livro() {
     }
 
-    public Livro(String titulo, String autor, String ano, float nota) {
+    public Livro(long id, String titulo, String autor, String ano, float nota) {
+        this.id = id;
         this.titulo = titulo;
         this.autor = autor;
         this.ano = ano;
         this.nota = nota;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getTitulo() {
