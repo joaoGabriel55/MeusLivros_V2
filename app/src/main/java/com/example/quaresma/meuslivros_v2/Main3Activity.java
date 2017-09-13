@@ -68,7 +68,7 @@ public class Main3Activity extends AppCompatActivity {
         if(livroAtual == lista.size() -1 ){
             Snackbar snackbar = Snackbar.make((View) v.getParent(), "Ultimo registro", Snackbar.LENGTH_SHORT);
             snackbar.show();
-            proximo.setEnabled(false);
+            //proximo.setEnabled(false);
         } else {
             atualizarParametros(livroAtual + 1);
             livroAtual ++;
@@ -79,7 +79,7 @@ public class Main3Activity extends AppCompatActivity {
         if(livroAtual == 0 ){
             Snackbar snackbar = Snackbar.make((View) v.getParent(), "Primeiro registro", Snackbar.LENGTH_SHORT);
             snackbar.show();
-            anterior.setEnabled(false);
+            //anterior.setEnabled(false);
         } else {
             atualizarParametros(livroAtual - 1);
             livroAtual --;

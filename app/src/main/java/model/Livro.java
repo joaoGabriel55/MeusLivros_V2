@@ -11,16 +11,18 @@ public class Livro {
     private String autor;
     private String ano;
     private float nota;
+    private boolean lido;
 
     public Livro() {
     }
 
-    public Livro(long id, String titulo, String autor, String ano, float nota) {
+    public Livro(long id, String titulo, String autor, String ano, float nota, boolean lido) {
         this.id = id;
         this.titulo = titulo;
         this.autor = autor;
         this.ano = ano;
         this.nota = nota;
+        this.lido = lido;
     }
 
     public long getId() {
@@ -61,5 +63,13 @@ public class Livro {
 
     public void setNota(float nota) {
         this.nota = nota;
+    }
+
+    public boolean isLido() {
+        return lido;
+    }
+
+    public void setLido(boolean lido) {
+        this.lido = lido;
     }
 }
