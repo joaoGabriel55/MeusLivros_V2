@@ -36,6 +36,7 @@
         android:layout_marginRight="5dp"
         android:text="Lido"
         android:clickable="false"
+        android:enabled="false"
         android:onClick="setLido"
         android:textAlignment="center" />
 

@@ -1,10 +1,14 @@
 package model;
 
+import java.io.Serializable;
+
 /**
  * Created by Quaresma on 09/09/2017.
  */
 
-public class Livro {
+public class Livro implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private long id;
     private String titulo;

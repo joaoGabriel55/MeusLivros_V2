@@ -9,98 +9,103 @@
         android:id="@+id/autoCompleteTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
         android:layout_marginEnd="78dp"
         android:layout_marginStart="78dp"
+        android:layout_marginTop="25dp"
         android:completionHint="Digite um nome de um livro"
         android:completionThreshold="1"
         android:hint="@string/hint_auto_complete"
         android:singleLine="true" />
 
-    <LinearLayout
+
+    <TextView
+        android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:text="Título:"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Título:"
-            android:textColor="@android:color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Autor:"
-            android:textColor="@android:color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/textView13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ano:"
-            android:textColor="@android:color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/textView14"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:text="Nota:"
-            android:textColor="@android:color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-
-    <LinearLayout
+    <TextView
+        android:id="@+id/titulo2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/titulo2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:text="TextView"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
 
-            android:text="TextView"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:text="Autor:"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/ano2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:text="TextView"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:text="Ano:"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/autor2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:text="TextView"
+        android:textColor="@android:color/black"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:text="Nota:"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
 
-        <TextView
-            android:id="@+id/ano2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
+    <RatingBar
+        android:id="@+id/nota2"
+        style="@style/Base.Widget.AppCompat.RatingBar.Indicator"
 
-
-        <TextView
-            android:id="@+id/autor2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
-
-        <RatingBar
-            android:id="@+id/nota2"
-            style="@style/Base.Widget.AppCompat.RatingBar.Indicator"
-
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="false"
-            android:elevation="10dp" />
-    </LinearLayout>
-
-
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:clickable="false"
+        android:elevation="10dp" />
 </LinearLayout>
+
+
+

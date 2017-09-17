@@ -114,6 +114,27 @@ public class BancoHelper extends SQLiteOpenHelper {
         }
     }
 
+    public int delete(Livro livro) {
+        SQLiteDatabase db = getWritableDatabase();
+        int retorno = 0;
+        try {
+            // delete from carro where _id=?
+            String selection = LivroContrato.LivroEntry._ID + "= ?";
+            String[] whereArgs = new String[]{String.valueOf(livro.getId())};
+            int count = db.delete(LivroContrato.LivroEntry.TABLE_NAME, selection, whereArgs);
+            Log.i(TAG, "Deletou " + count + " registro.");
+            retorno = 1;
+            return count;
+        }catch (Exception e){
+            e.printStackTrace();
+            retorno = 2;
+        } finally {
+            db.close();
+        }
+
+        return retorno;
+    }
+
     public List<Livro> findAll() {
         SQLiteDatabase db = getReadableDatabase();
         try {

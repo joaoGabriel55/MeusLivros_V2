@@ -2,5 +2,15 @@
     <string name="app_name">MeusLivros V2</string>
     <string name="hint_user">Nome do usuário</string>
     <string name="hint_auto_complete">Qual livro estás a procurar?</string>
+    <string name="opcoes">Selecione a operação</string>
     <string name="hint_pass">Senha</string>
+    <string name="msg_delete">Deseja excluir este livro?</string>
+    <string name="alterar">Alterar</string>
+    <string name="excluir">Excluir</string>
+    <string name="cancelar">Senha</string>
+
+    <string name="correct">Livro Excluido com sucesso!</string>
+    <string name="error">Erro ao excluir!</string>
+    <string name="sim">Sim</string>
+    <string name="nao">Não</string>
 </resources>
