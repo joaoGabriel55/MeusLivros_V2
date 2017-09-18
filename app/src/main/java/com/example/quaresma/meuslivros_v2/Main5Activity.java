@@ -1,11 +1,11 @@
 package com.example.quaresma.meuslivros_v2;
 
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
@@ -23,6 +23,7 @@ public class Main5Activity extends AppCompatActivity {
     ListView lista;
     List<Livro> listaLivro = new ArrayList<>();
     BancoHelper bancoHelper = new BancoHelper(this);
+    LivroAdapter livroAdapter;
     CheckBox lido;
 
     @Override
@@ -31,18 +32,29 @@ public class Main5Activity extends AppCompatActivity {
         setContentView(R.layout.activity_main5);
 
         lista = (ListView) findViewById(R.id.minhalista);
-        lido = (CheckBox) findViewById(R.id.checkBox);
 
         listaLivro = bancoHelper.findAll();
-        lista.setAdapter(new LivroAdapter(this, listaLivro, lido));
+        lista.setAdapter(new LivroAdapter(this, listaLivro));
+
+        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Log.i("Rachas", "Dad");
+            }
+        });
+
 
         clickLista();
+
     }
 
 
-    private void clickLista(){
+    public void clickLista(){
+
+        /*
 
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, final int i, long l) {
                 //final:
@@ -83,8 +95,10 @@ public class Main5Activity extends AppCompatActivity {
                 ops.setTitle(getString(R.string.opcoes));
                 AlertDialog alertDialog = ops.create();
                 alertDialog.show();
+                Log.i("EAE", "das");
             }
         });
+        */
     }
 
     private void excluir(final Livro livro){
@@ -99,7 +113,7 @@ public class Main5Activity extends AppCompatActivity {
                 if (retorno == 1) {
                     Snackbar snackbar = Snackbar.make((View) v.getParent(), getString(R.string.correct), Snackbar.LENGTH_SHORT);
                     snackbar.show();
-                    listaLivro = bancoHelper.findAll();
+                    livroAdapter.updateItens((ArrayList<Livro>) listaLivro);
                 } else {
                     Snackbar snackbar = Snackbar.make((View) v.getParent(), getString(R.string.error), Snackbar.LENGTH_SHORT);
                     snackbar.show();

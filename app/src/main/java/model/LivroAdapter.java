@@ -5,11 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.CheckBox;
 
 import com.example.quaresma.meuslivros_v2.R;
 import com.example.quaresma.meuslivros_v2.holder.ViewHolder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -18,12 +18,11 @@ public class LivroAdapter extends BaseAdapter{
     Context context;
     List<Livro> listaLivros;
 
-    CheckBox lido;
 
-    public LivroAdapter(Context context, List<Livro> listaLivros, CheckBox lido) {
+    public LivroAdapter(Context context, List<Livro> listaLivros) {
         this.context = context;
         this.listaLivros = listaLivros;
-        this.lido = lido;
+
     }
 
 
@@ -64,5 +63,10 @@ public class LivroAdapter extends BaseAdapter{
         holder.textViewAutor.setText(livroescolhido.getTitulo());
         holder.checkBox.setChecked(livroescolhido.isLido());
         return view;
+    }
+
+    public void updateItens(ArrayList<Livro> itens) {
+        this.listaLivros = itens;
+        notifyDataSetChanged();
     }
 }
