@@ -7,9 +7,9 @@
     android:orientation="horizontal"
     tools:context="com.example.quaresma.meuslivros_v2.Main5Activity">
 
-    <ListView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/minhalista"></ListView>
+        android:layout_height="match_parent" />
 
 </RelativeLayout>

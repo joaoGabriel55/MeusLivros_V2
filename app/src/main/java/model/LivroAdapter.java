@@ -1,72 +1,67 @@
 package model;
 
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.widget.RatingBar;
+import android.widget.TextView;
 
 import com.example.quaresma.meuslivros_v2.R;
-import com.example.quaresma.meuslivros_v2.holder.ViewHolder;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
-public class LivroAdapter extends BaseAdapter{
+public class LivroAdapter extends RecyclerView.Adapter{
 
     Context context;
-    List<Livro> listaLivros;
+    List<Livro> livroList;
 
-
-    public LivroAdapter(Context context, List<Livro> listaLivros) {
+    public LivroAdapter(Context context, List<Livro> livroList) {
         this.context = context;
-        this.listaLivros = listaLivros;
-
-    }
-
-
-
-    @Override
-    public int getCount() {
-        return listaLivros != null ? listaLivros.size(): 0;
+        this.livroList = livroList;
     }
 
     @Override
-    public Object getItem(int i) {
-        return listaLivros.get(i);
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+        View view = LayoutInflater.from(context).inflate(R.layout.card_layout, parent, false);
+        LivroHolder holder = new LivroHolder(view);
+
+        return holder;
     }
 
     @Override
-    public long getItemId(int i) {
-        return i;
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+
+        LivroHolder livroHolder = (LivroHolder) holder;
+        Livro livroEscolhido = livroList.get(position);
+        livroHolder.textViewNome.setText(livroEscolhido.getTitulo());
+        livroHolder.nota.setRating(livroEscolhido.getNota());
+
     }
 
     @Override
-    public View getView(int i, View convertView, ViewGroup viewGroup) {
+    public int getItemCount() {
+        return livroList == null ? 0 : livroList.size();
+    }
 
-        View view;
-        ViewHolder holder;
+    public class LivroHolder extends RecyclerView.ViewHolder{
 
-        if(convertView == null){
-            view = LayoutInflater.from(context).inflate(R.layout.list_view, viewGroup, false);
-            holder = new ViewHolder(view);
-            view.setTag(holder);
+        final TextView textViewNome;
+        final RatingBar nota;
+        public LivroHolder(View v){
 
-        }else{
-            view = convertView;
-            holder = (ViewHolder) view.getTag();
+            super(v);
+
+            textViewNome = v.findViewById(R.id.title2);
+            nota = v.findViewById(R.id.nota);
+
+
+
         }
-        //Preenche os dados do livro
-        Livro livroescolhido = listaLivros.get(i);
-        holder.textViewTitulo.setText(livroescolhido.getTitulo());
-        holder.textViewAutor.setText(livroescolhido.getTitulo());
-        holder.checkBox.setChecked(livroescolhido.isLido());
-        return view;
-    }
 
-    public void updateItens(ArrayList<Livro> itens) {
-        this.listaLivros = itens;
-        notifyDataSetChanged();
+
     }
 }
