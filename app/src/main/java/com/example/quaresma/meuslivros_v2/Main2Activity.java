@@ -15,6 +15,8 @@ import model.Livro;
 
 public class Main2Activity extends AppCompatActivity {
 
+    int id;
+
     @BindView(R.id.editText)
     EditText titulo;
 
@@ -36,14 +38,29 @@ public class Main2Activity extends AppCompatActivity {
     Livro livro = new Livro();
     BancoHelper bancoHelper = new BancoHelper(this);
 
+    boolean flag = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        Bundle dados = getIntent().getExtras();
-
         ButterKnife.bind(this);
+
+        Bundle bundle = getIntent().getExtras();
+
+        if(bundle != null) {
+
+            flag = false;
+            id = bundle.getInt("Id");
+            titulo.setText(bundle.getString("Titulo"));
+            autor.setText(bundle.getString("Autor"));
+            ano.setText(bundle.getString("Ano"));
+            nota.setRating((float) bundle.getDouble("Nota"));
+
+        } else {
+           flag = true;
+        }
 
         salvar();
         cancelar();
@@ -56,12 +73,13 @@ public class Main2Activity extends AppCompatActivity {
         salvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                livro.setId(id);
                 livro.setTitulo(titulo.getText().toString());
                 livro.setAutor(autor.getText().toString());
                 livro.setAno(ano.getText().toString());
                 livro.setNota(nota.getRating());
 
-                bancoHelper.save(livro);
+                bancoHelper.save(livro, flag);
 
                 Toast.makeText(Main2Activity.this, "Livro Salvo com sucesso", Toast.LENGTH_SHORT).show();
                 finish();

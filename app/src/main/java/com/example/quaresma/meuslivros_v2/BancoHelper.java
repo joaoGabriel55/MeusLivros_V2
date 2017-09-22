@@ -81,9 +81,9 @@ public class BancoHelper extends SQLiteOpenHelper {
     }
 
     // Insere um novo carro, ou atualiza se já existe.
-    public long save(Livro livro) {
+    public long save(Livro livro, boolean flag) {
 
-        long id = livro.getId();
+        Long id = livro.getId();
         SQLiteDatabase db = getWritableDatabase();
 
         try {
@@ -93,7 +93,15 @@ public class BancoHelper extends SQLiteOpenHelper {
             values.put(LivroContrato.LivroEntry.ANO , livro.getAno());
             values.put(LivroContrato.LivroEntry.NOTA , livro.getNota());
 
-            if (id != 0) {
+            if (flag) {
+                // insert into carro values (...)-------------------alterei de "" para null
+                id = db.insert(LivroContrato.LivroEntry.TABLE_NAME, null, values);
+                Log.i(TAG, "Inseriu id [" + id + "] no banco.");
+                return id;
+
+            } else {
+
+                Log.i("eae", "id nao é zero");
 
                 String selection = LivroContrato.LivroEntry._ID + "= ?";
                 String[] whereArgs = new String[]{String.valueOf(id)};
@@ -103,11 +111,6 @@ public class BancoHelper extends SQLiteOpenHelper {
                 Log.i(TAG, "Atualizou id [" + id + "] no banco.");
                 return count;
 
-            } else {
-                // insert into carro values (...)-------------------alterei de "" para null
-                id = db.insert(LivroContrato.LivroEntry.TABLE_NAME, null, values);
-                Log.i(TAG, "Inseriu id [" + id + "] no banco.");
-                return id;
             }
         } finally {
             db.close();
@@ -116,23 +119,23 @@ public class BancoHelper extends SQLiteOpenHelper {
 
     public int delete(Livro livro) {
         SQLiteDatabase db = getWritableDatabase();
-        int retorno = 0;
+
+        int count = 0;
         try {
             // delete from carro where _id=?
             String selection = LivroContrato.LivroEntry._ID + "= ?";
             String[] whereArgs = new String[]{String.valueOf(livro.getId())};
-            int count = db.delete(LivroContrato.LivroEntry.TABLE_NAME, selection, whereArgs);
+            count = db.delete(LivroContrato.LivroEntry.TABLE_NAME, selection, whereArgs);
             Log.i(TAG, "Deletou " + count + " registro.");
-            retorno = 1;
-            return count;
-        }catch (Exception e){
+
+        } catch (Exception e) {
             e.printStackTrace();
-            retorno = 2;
         } finally {
             db.close();
-        }
 
-        return retorno;
+        }
+        return count;
+
     }
 
     public List<Livro> findAll() {

@@ -29,6 +29,18 @@ public class Livro implements Serializable {
         this.lido = lido;
     }
 
+    @Override
+    public String toString() {
+        return "Livro{" +
+                "id=" + id +
+                ", titulo='" + titulo + '\'' +
+                ", autor='" + autor + '\'' +
+                ", ano='" + ano + '\'' +
+                ", nota=" + nota +
+                ", lido=" + lido +
+                '}';
+    }
+
     public long getId() {
         return id;
     }
