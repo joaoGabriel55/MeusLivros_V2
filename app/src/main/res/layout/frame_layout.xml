@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:background="@color/cardview_dark_background"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:visibility="gone"
+        android:gravity="right|center_vertical"
+        android:id="@+id/layout_gone">
+
+        <Button
+            android:id="@+id/undo_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Desfazer"
+            android:textAllCaps="true"
+            android:visibility="gone"
+            android:textColor="@android:color/white"
+            style="@style/Base.Widget.AppCompat.Button.Borderless"
+            />
+    </LinearLayout>
+
+    <!-- quick and dirty divider -->
+    <View
+        android:layout_width="380dp"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_gravity="center_horizontal|bottom"
+        />
+
+    <LinearLayout
+        android:id="@+id/layout_normal"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom"
+
+        android:background="@color/cardview_light_background"
+
+        android:clickable="true"
+
+        android:focusable="true"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="23dp"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Titulo:"
+                android:textAllCaps="false"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/title2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="0.04"
+                android:text="none"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <RatingBar
+            android:id="@+id/nota"
+            style="@style/Base.Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:clickable="false" />
+
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/move"
+        android:layout_width="wrap_content"
+        android:layout_height="46dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="right"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@null"
+        app:srcCompat="@drawable/ic_more_vert_black_24px" />
+
+
+</FrameLayout>

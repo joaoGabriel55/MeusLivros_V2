@@ -1,6 +1,5 @@
 package com.example.quaresma.meuslivros_v2;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -68,8 +67,6 @@ public class Main2Activity extends AppCompatActivity {
 
     private void salvar() {
 
-        Intent i= new Intent();
-
         salvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,6 +77,8 @@ public class Main2Activity extends AppCompatActivity {
                 livro.setNota(nota.getRating());
 
                 bancoHelper.save(livro, flag);
+
+
 
                 Toast.makeText(Main2Activity.this, "Livro Salvo com sucesso", Toast.LENGTH_SHORT).show();
                 finish();

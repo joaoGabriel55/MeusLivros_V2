@@ -14,7 +14,9 @@ public final class LivroContrato {
 
     public static class LivroEntry implements BaseColumns{
 
+
         public static final String TABLE_NAME = "Livro";
+        //public static final String IMG = "img";
         public static final String TITULO = "titulo";
         public static final String AUTOR = "autor";
         public static final String ANO = "ano";

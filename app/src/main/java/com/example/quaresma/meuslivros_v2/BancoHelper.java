@@ -88,6 +88,7 @@ public class BancoHelper extends SQLiteOpenHelper {
 
         try {
             ContentValues values = new ContentValues();
+            //values.put(LivroContrato.LivroEntry.IMG , livro.getImg());
             values.put(LivroContrato.LivroEntry.TITULO , livro.getTitulo());
             values.put(LivroContrato.LivroEntry.AUTOR, livro.getAutor());
             values.put(LivroContrato.LivroEntry.ANO , livro.getAno());
@@ -162,6 +163,7 @@ public class BancoHelper extends SQLiteOpenHelper {
 
                 // recupera os atributos de livro
                 livro.setId(c.getLong(c.getColumnIndex(LivroContrato.LivroEntry._ID)));
+                //livro.setImg(c.getInt(c.getColumnIndex(LivroContrato.LivroEntry.IMG)));
                 livro.setTitulo(c.getString(c.getColumnIndex(LivroContrato.LivroEntry.TITULO)));
                 livro.setAutor(c.getString(c.getColumnIndex(LivroContrato.LivroEntry.AUTOR)));
                 livro.setAno(c.getString(c.getColumnIndex(LivroContrato.LivroEntry.ANO)));

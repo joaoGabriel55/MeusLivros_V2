@@ -59,8 +59,14 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, Main4Activity.class));
     }
 
+    public void page(View v){
+        startActivity(new Intent(this, Main6Activity.class));
+    }
+
     public void listView(View v){
         startActivity(new Intent(this, Main5Activity.class));
     }
+
+
 
 }
