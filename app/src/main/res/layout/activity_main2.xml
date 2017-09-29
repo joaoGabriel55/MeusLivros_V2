@@ -4,103 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.quaresma.meuslivros_v2.Main2Activity">
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Título:"
-        app:layout_constraintRight_toLeftOf="@+id/editText"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        android:layout_marginEnd="7dp"
-        android:layout_marginTop="44dp"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="7dp" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Autor:"
-        tools:layout_constraintBottom_creator="1"
-        android:layout_marginStart="16dp"
-        app:layout_constraintBottom_toBottomOf="@+id/editText2"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="16dp" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Ano:"
-        app:layout_constraintRight_toLeftOf="@+id/editText3"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toBottomOf="@+id/editText3"
-        android:layout_marginEnd="7dp"
-        android:layout_marginRight="7dp" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nota:"
-        tools:layout_constraintTop_creator="1"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="22dp" />
-
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
-        app:layout_constraintRight_toRightOf="@+id/editText2"
-        android:layout_marginTop="16dp"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/editText2"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="0dp"
-        android:layout_height="45dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        android:layout_marginStart="9dp"
-        android:layout_marginEnd="11dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toRightOf="@+id/textView2"
-        android:layout_marginLeft="9dp"
-        android:layout_marginRight="11dp" />
-
-    <EditText
-        android:id="@+id/editText3"
-        android:layout_width="0dp"
-        android:layout_height="45dp"
-        android:ems="10"
-        android:inputType="number"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        app:layout_constraintRight_toRightOf="@+id/editText2"
-        app:layout_constraintTop_toBottomOf="@+id/editText2"
-        tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/editText2" />
+    tools:context="com.example.quaresma.meuslivros_v2.Main2Activity"
+    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteX="0dp">
 
     <RatingBar
         android:id="@+id/ratingBar"
@@ -108,39 +14,147 @@
         android:layout_height="wrap_content"
         tools:layout_constraintTop_creator="1"
         tools:layout_constraintRight_creator="1"
-        android:layout_marginEnd="31dp"
-        app:layout_constraintRight_toRightOf="@+id/editText3"
-        app:layout_constraintTop_toBottomOf="@+id/editText3"
-        android:layout_marginRight="31dp" />
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toBottomOf="@+id/button3"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="119dp"
+        app:layout_constraintTop_toBottomOf="@+id/input_layout_autor"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="118dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <Button
         android:id="@+id/button3"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Salvar"
+        android:backgroundTint="?attr/actionModeSplitBackground"
         android:onClick="salvar"
-        tools:layout_constraintBottom_creator="1"
-        android:layout_marginStart="28dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Salvar"
+        android:layout_marginStart="72dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button4"
+        tools:layout_constraintBaseline_creator="1"
         tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="89dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="28dp" />
+        android:layout_marginLeft="72dp" />
 
     <Button
         android:id="@+id/button4"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Cancelar"
+        android:backgroundTint="@android:color/holo_red_light"
         android:onClick="cancelar"
-        tools:layout_constraintTop_creator="1"
+        android:text="Cancelar"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toBottomOf="@+id/button3"
-        android:layout_marginEnd="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="72dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/button3"
-        android:layout_marginRight="24dp" />
+        android:layout_marginBottom="89dp"
+        android:layout_marginRight="72dp" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout_autor"
+        android:layout_width="239dp"
+        android:layout_height="0dp"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="81dp"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/editText2"
+            android:hint="Autor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="85dp"
+            tools:layout_editor_absoluteY="92dp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout_ano"
+        android:layout_width="236dp"
+        android:layout_height="55dp"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        app:layout_constraintRight_toRightOf="@+id/input_layout_autor"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@+id/input_layout_autor"
+        tools:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="@+id/input_layout_autor"
+        tools:layout_editor_absoluteY="146dp"
+        tools:layout_editor_absoluteX="76dp">
+
+        <EditText
+            android:id="@+id/editText3"
+            android:hint="Ano"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:inputType="number"
+            tools:layout_editor_absoluteX="85dp"
+            tools:layout_editor_absoluteY="155dp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Defina sua nota"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        app:layout_constraintBottom_toTopOf="@+id/ratingBar"
+        android:layout_marginStart="70dp"
+        android:layout_marginEnd="70dp"
+        app:layout_constraintRight_toRightOf="@+id/ratingBar"
+        tools:layout_constraintLeft_creator="1"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintLeft_toLeftOf="@+id/input_layout_ano"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
+        app:layout_constraintHorizontal_bias="1.0" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout_title"
+        android:layout_width="241dp"
+        android:layout_height="51dp"
+        android:layout_marginBottom="19dp"
+        android:layout_marginEnd="71dp"
+        android:layout_marginLeft="71dp"
+        android:layout_marginRight="71dp"
+        android:layout_marginStart="71dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/input_layout_autor"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_editor_absoluteY="12dp"
+        tools:layout_editor_absoluteX="71dp">
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:hint="Título"
+            android:inputType="textPersonName"
+            tools:layout_editor_absoluteX="81dp"
+            tools:layout_editor_absoluteY="16dp" />
+    </android.support.design.widget.TextInputLayout>
 
 
 </android.support.constraint.ConstraintLayout>

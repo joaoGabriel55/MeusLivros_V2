@@ -13,7 +13,6 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,20 +47,39 @@ public class Main5Activity extends AppCompatActivity {
 
             @Override
             public void OnItemClick(View view, int i) {
-                Toast.makeText(Main5Activity.this, "Clique simples", Toast.LENGTH_SHORT).show();
-                Bundle b = new Bundle();
-                Intent intent = new Intent(Main5Activity.this, Main2Activity.class);
+                //massa
+                LivroAdapter.LivroHolder livroHolder = new LivroAdapter.LivroHolder(view);
 
-                Log.i("lista", listaLivro.get(i).toString());
-                b.putInt("Id", (int) listaLivro.get(i).getId());
-                b.putString("Titulo", listaLivro.get(i).getTitulo());
-                b.putString("Autor", listaLivro.get(i).getAutor());
-                b.putString("Ano", listaLivro.get(i).getAno());
-                b.putDouble("Nota", listaLivro.get(i).getNota());
 
-                intent.putExtras(b);
+                livroHolder.edit.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        recyclerView.addOnItemTouchListener(new MyRecyclerView(context, recyclerView, new MyRecyclerView.OnItemClickListener() {
+                            @Override
+                            public void OnItemClick(View view, int i) {
+                                Bundle b = new Bundle();
+                                Intent intent = new Intent(Main5Activity.this, Main2Activity.class);
 
-                startActivity(intent);
+                                Log.i("lista", listaLivro.get(i).toString());
+                                b.putInt("Id", (int) listaLivro.get(i).getId());
+                                b.putString("Titulo", listaLivro.get(i).getTitulo());
+                                b.putString("Autor", listaLivro.get(i).getAutor());
+                                b.putString("Ano", listaLivro.get(i).getAno());
+                                b.putDouble("Nota", listaLivro.get(i).getNota());
+
+                                intent.putExtras(b);
+
+                                startActivity(intent);
+                            }
+
+                            @Override
+                            public void OnItemLongClick(View view, int i) {
+
+                            }
+                        }));
+                    }
+                });
+
             }
 
             @Override

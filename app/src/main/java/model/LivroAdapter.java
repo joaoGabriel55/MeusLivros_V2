@@ -2,6 +2,7 @@ package model;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +30,7 @@ public class LivroAdapter extends RecyclerView.Adapter {
     List<Livro> livroList = new ArrayList<>();
     List<Livro> itemPending = new ArrayList<>();
     BancoHelper bancoHelper;
+    RecyclerView recyclerView;
 
     public LivroAdapter(Context context, List<Livro> livroList) {
         this.context = context;
@@ -52,10 +54,42 @@ public class LivroAdapter extends RecyclerView.Adapter {
         final Livro livroEscolhido = livroList.get(position);
         livroHolder.textViewNome.setText(livroEscolhido.getTitulo());
         livroHolder.nota.setRating(livroEscolhido.getNota());
+
         livroHolder.move.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new ItemTouchHelper.Callback() {
 
+                    @Override
+                    public int getMovementFlags(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder) {
+                        int dragFlags = ItemTouchHelper.UP | ItemTouchHelper.DOWN;
+                        int swipeFlags = ItemTouchHelper.START;
+                        return makeMovementFlags(dragFlags, swipeFlags);
+                    }
+
+                    @Override
+                    public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                        int fromPosition = viewHolder.getAdapterPosition();
+                        int toPosition = target.getAdapterPosition();
+
+                        LivroAdapter adapter = (LivroAdapter) recyclerView.getAdapter();
+
+                        adapter.mover(fromPosition, toPosition);
+
+                        return true;
+                    }
+
+                    @Override
+                    public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                        int pos = viewHolder.getAdapterPosition();
+                        LivroAdapter adapter = (LivroAdapter) recyclerView.getAdapter();
+                        adapter.removerTempo(pos);
+                    }
+
+
+                });
+
+                itemTouchHelper.attachToRecyclerView(recyclerView);
             }
         });
 
@@ -175,7 +209,7 @@ public class LivroAdapter extends RecyclerView.Adapter {
         return livroList == null ? 0 : livroList.size();
     }
 
-    public class LivroHolder extends RecyclerView.ViewHolder {
+    public static class LivroHolder extends RecyclerView.ViewHolder {
 
         final TextView textViewNome;
         final RatingBar nota;
@@ -183,6 +217,7 @@ public class LivroAdapter extends RecyclerView.Adapter {
         final LinearLayout layoutNormal;
         final LinearLayout layoutGone;
         final Button undobtn;
+        public final ImageButton edit;
         final ImageButton move;
 
         public LivroHolder(View v) {
@@ -193,9 +228,11 @@ public class LivroAdapter extends RecyclerView.Adapter {
             layoutNormal = v.findViewById(R.id.layout_normal);
             layoutGone = v.findViewById(R.id.layout_gone);
             move = v.findViewById(R.id.move);
+            edit = v.findViewById(R.id.editar);
             undobtn = v.findViewById(R.id.undo_button);
 
         }
+
 
 
     }

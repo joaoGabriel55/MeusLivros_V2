@@ -61,7 +61,7 @@
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="50dp"
                 android:text="Titulo:"
                 android:textAllCaps="false"
                 android:textSize="18sp"
@@ -82,7 +82,7 @@
             style="@style/Base.Widget.AppCompat.RatingBar.Small"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="50dp"
             android:clickable="false" />
 
 
@@ -94,11 +94,23 @@
         android:layout_height="46dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_gravity="right"
-        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_gravity="left"
         android:layout_marginTop="10dp"
         android:background="@null"
-        app:srcCompat="@drawable/ic_more_vert_black_24px" />
+        app:srcCompat="@drawable/ic_drag_handle_black_24px" />
+
+    <ImageButton
+        android:id="@+id/editar"
+        android:layout_width="wrap_content"
+        android:layout_height="46dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginRight="20dp"
+        android:layout_gravity="right"
+        android:layout_marginTop="10dp"
+        android:background="@null"
+        app:srcCompat="@drawable/ic_mode_edit_black_24px" />
 
 
 </FrameLayout>
